@@ -1,0 +1,15 @@
+Hello Sir !
+I am Yuxuan Xiu from a university in China and I am trying to reproduce your experimental results on Windows10 
+with the newest version of theano. I came with several errors and solved them. Maybe there are several changes which should be made
+to run BinaryConnect with the newest version of theano ?
+[1] As the newest version of theano changed  "signal.downsample.max_pool_2d", line 415 in layer.py should be changed to 
+"z = T.signal.pool.pool_2d(input=z, ds=self.pool_shape, st=self.pool_stride, mode='max')"
+...I hope I am right...
+[2]I came with a problem between "float32" and "float64" and this finally worked
+Chnage line 272 to 276 in trainer.py to:
+        self.shared_x.set_value(float32(set.X[start:(size+start)]))
+        self.shared_y.set_value(float32(set.y[start:(size+start)]))
+Maybe adding float32 to it can me the program stronger?
+
+Sorry, I never used github like this before and as you notice my Engish is not very good...Maybe an E-mail is better but I am affraid
+that I may disturb you...
